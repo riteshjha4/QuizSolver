@@ -1,0 +1,8 @@
+venv/
+.env
+__pycache__/
+ms-playwright/
+*.log
+*.pyc
+*.pyo
+*.pyd

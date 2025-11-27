@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+playwright
+aiohttp
+python-dotenv
+pandas
+pdfplumber
+beautifulsoup4
+lxml
+httpx
+PyPDF2
