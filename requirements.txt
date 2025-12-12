@@ -1,0 +1,9 @@
+flask
+playwright
+openai
+requests
+pandas
+pdfplumber
+beautifulsoup4
+lxml
+python-dotenv
