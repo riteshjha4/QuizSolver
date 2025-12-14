@@ -46,7 +46,6 @@ async def run_quiz_cycle(email: str, secret: str, task_url: str):
     print(f"    -> Page Content Extracted ({len(content)} chars).")
 
     # --- Step 2: Analyze with LLM ---
-    # We ask the LLM to understand the task and write Python code to solve it.
     prompt = f"""
     You are an autonomous data analysis agent. You are looking at a quiz webpage.
     
@@ -82,11 +81,9 @@ async def run_quiz_cycle(email: str, secret: str, task_url: str):
     print(f"    -> Plan: {llm_response['reasoning']}")
 
     # --- Step 3: Execute the Solution Code ---
-    # We create a local scope to capture the 'result' variable
     local_scope = {}
     
     try:
-        # Dangerous: executing AI code. Ensure sandbox in real deployment.
         exec(llm_response["python_code"], globals(), local_scope)
         answer = local_scope.get("result")
         print(f"    -> Calculated Answer: {answer}")
@@ -126,4 +123,5 @@ async def run_quiz_cycle(email: str, secret: str, task_url: str):
                 print("    [=] Quiz Chain Ended or Failed.")
                 
         except Exception as e:
+
             print(f"    [!] Submission failed: {e}")
